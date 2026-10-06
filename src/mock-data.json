@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": "u-demo",
+      "name": "Demo Student",
+      "email": "student@consulthub.local",
+      "password": "Demo@123",
+      "role": "student",
+      "credits": 1500
+    }
+  ],
+  "mentors": [
+    {
+      "id": "m-ananya",
+      "name": "Ananya Reddy",
+      "role": "Career & Internship Mentor",
+      "categories": ["Career", "Internships", "Job Search"],
+      "rate10": 49,
+      "rate15": 79,
+      "rating": 4.9,
+      "online": true,
+      "verified": true,
+      "bio": "Helps college students plan internships, choose career paths and prepare for early software roles.",
+      "credentials": ["B.Tech Computer Science", "5+ years industry experience", "Verified work history"]
+    },
+    {
+      "id": "m-amit",
+      "name": "Amit Patel",
+      "role": "Software Engineering Mentor",
+      "categories": ["Projects", "Skills", "Career", "Interviews"],
+      "rate10": 49,
+      "rate15": 99,
+      "rating": 4.8,
+      "online": true,
+      "verified": true,
+      "bio": "Guides students on full-stack projects, DSA roadmaps, GitHub portfolios and software engineering fundamentals.",
+      "credentials": ["Senior Software Engineer", "MERN & Java", "Verified experience"]
+    },
+    {
+      "id": "m-meera",
+      "name": "Meera Joshi",
+      "role": "Resume & Portfolio Mentor",
+      "categories": ["Resume", "Career", "Job Search"],
+      "rate10": 39,
+      "rate15": 69,
+      "rating": 4.9,
+      "online": true,
+      "verified": true,
+      "bio": "Reviews student resumes, LinkedIn profiles and portfolios with practical recruiter-focused feedback.",
+      "credentials": ["Recruitment Specialist", "1000+ resume reviews", "Verified professional profile"]
+    },
+    {
+      "id": "m-rahul",
+      "name": "Rahul Sharma",
+      "role": "Interview Preparation Mentor",
+      "categories": ["Interview", "Skills", "Job Search"],
+      "rate10": 49,
+      "rate15": 89,
+      "rating": 4.8,
+      "online": false,
+      "verified": true,
+      "bio": "Mock interviews, HR questions, technical interview strategy and communication practice for students.",
+      "credentials": ["Software Engineering Manager", "500+ mock interviews", "Verified experience"]
+    }
+  ],
+  "saved": {
+    "u-demo": ["m-meera"]
+  },
+  "bookings": [],
+  "messages": {
+    "u-demo": [
+      {
+        "id": "t-1",
+        "mentorId": "m-ananya",
+        "unread": 1,
+        "msgs": [
+          {
+            "me": false,
+            "t": "Hi! Tell me what career or internship decision you are currently stuck on.",
+            "ts": 0
+          }
+        ]
+      }
+    ]
+  }
+}
