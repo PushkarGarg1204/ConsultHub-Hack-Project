@@ -3,7 +3,11 @@ import Icon from '../components/Icon.jsx'
 import Sheet from '../components/Sheet.jsx'
 import Avatar from '../components/Avatar.jsx'
 import SlotPicker from '../components/SlotPicker.jsx'
+<<<<<<< HEAD
 import { fmtLeft } from '../data.js'
+=======
+import { EXPERTS, fmtLeft } from '../data.js'
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
 
 const TABS = ['upcoming', 'completed', 'cancelled']
 
@@ -29,7 +33,11 @@ export default function Sessions({ sessions, setSessions, onResched, notify }) {
       {list.length === 0 && <div className="empty"><p>No {tab} sessions yet.</p></div>}
       <div className="grid">
         {list.map((s) => {
+<<<<<<< HEAD
           const e = s.expert || { name: 'Mentor', role: 'Verified mentor' }
+=======
+          const e = EXPERTS.find((x) => x.id === s.expertId)
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
           return (
             <article className="ses" key={s.id}>
               <div className="ses-top">

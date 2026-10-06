@@ -1,13 +1,29 @@
+<<<<<<< HEAD
 export const CATEGORIES = ['Career', 'Resume', 'Interview', 'Projects', 'Job Search', 'Internships', 'Skills', 'Exams', 'Courses']
 export const PILLS = ['Career', 'Resume', 'Interview', 'Projects']
+=======
+export const CATEGORIES = ['Career', 'Health', 'Business', 'Edu', 'Tech & IT', 'Marketing', 'Finance', 'Design', 'Legal']
+export const PILLS = ['Career', 'Health', 'Business', 'Edu']
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
 export const DAYS = ['Wed, Oct 7', 'Thu, Oct 8', 'Fri, Oct 9', 'Sat, Oct 10']
 export const TIMES = ['09:00 am', '11:30 am', '02:00 pm', '05:00 pm']
 
 export const EXPERTS = [
+<<<<<<< HEAD
   { id: 'm-ananya', name: 'Ananya Reddy', role: 'Career & Internship Mentor', cat: 'Career', rate: 79, rating: 4.9, online: true, bio: 'Helps college students plan internships, choose career paths and prepare for early software roles.', verified: true },
   { id: 'm-amit', name: 'Amit Patel', role: 'Software Engineering Mentor', cat: 'Projects', rate: 99, rating: 4.8, online: true, bio: 'Guides students on full-stack projects, DSA roadmaps, GitHub portfolios and software engineering fundamentals.', verified: true },
   { id: 'm-meera', name: 'Meera Joshi', role: 'Resume & Portfolio Mentor', cat: 'Resume', rate: 69, rating: 4.9, online: true, bio: 'Reviews student resumes, LinkedIn profiles and portfolios with practical recruiter-focused feedback.', verified: true },
   { id: 'm-rahul', name: 'Rahul Sharma', role: 'Interview Preparation Mentor', cat: 'Interview', rate: 89, rating: 4.8, online: false, bio: 'Mock interviews, HR questions, technical interview strategy and communication practice for students.', verified: true },
+=======
+  { id: 1, name: 'Sarah Jenkins', role: 'Career Coach', cat: 'Career', rate: 150, rating: 4.9, color: '#FFB4A2', online: true, bio: 'Executive Career Coach. Specializing in leadership transitions and salary negotiations for mid-to-senior levels.' },
+  { id: 2, name: 'Marcus Reed', role: 'Business Coach', cat: 'Business', rate: 225, rating: 4.8, color: '#A5D8FF', online: true, bio: 'Startup Strategy Advisor. Helping early-stage founders build scalable business models and secure funding.' },
+  { id: 3, name: 'Ananya Reddy', role: 'Edu Coach', cat: 'Edu', rate: 120, rating: 4.7, color: '#FFE08A', online: true, bio: 'Admissions Counselor. Guiding students in applying for Ivy League and highly competitive universities.' },
+  { id: 4, name: 'Amit Patel', role: 'Tech & IT Coach', cat: 'Tech & IT', rate: 200, rating: 4.8, color: '#B8F2C9', online: false, bio: 'Senior Systems Expert. Specializes in system design and deep tech optimizations for engineering teams.' },
+  { id: 5, name: 'Dr. Priya Nair', role: 'General Physician', cat: 'Health', rate: 300, rating: 4.9, color: '#D9C2FF', online: true, bio: 'Plain-language second opinions on reports, routines and recovery.' },
+  { id: 6, name: 'Kabir Singh', role: 'Finance Mentor', cat: 'Finance', rate: 180, rating: 4.6, color: '#FFC9E3', online: false, bio: 'Budgeting, pricing and cash flow for small shops and freelancers.' },
+  { id: 7, name: 'Meera Joshi', role: 'Brand Designer', cat: 'Design', rate: 140, rating: 4.7, color: '#FFD0A8', online: true, bio: 'Logo, brand and portfolio reviews for freelancers and early startups.' },
+  { id: 8, name: 'Adv. Rahul Verma', role: 'Startup Lawyer', cat: 'Legal', rate: 350, rating: 4.8, color: '#C5E1A5', online: false, bio: 'Company registration, contracts and IP basics explained without jargon.' },
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
 ]
 
 export const initials = (n) => n.replace(/^(Dr\.|Adv\.)\s*/, '').split(' ').map((w) => w[0]).join('')
@@ -35,8 +51,13 @@ export const SESSIONS = [
 ]
 
 export const THREADS = [
+<<<<<<< HEAD
   { id: 1, expertId: 'm-ananya', unread: 1, msgs: [{ me: false, t: 'Hi! Tell me what career or internship decision you are currently stuck on.', ts: n0 - 12 * MIN }] },
   { id: 2, expertId: 'm-amit', unread: 0, msgs: [{ me: true, t: 'Can you review my final-year project idea?', ts: n0 - 26 * 60 * MIN }, { me: false, t: 'Sure. Send the idea and your current tech stack.', ts: n0 - 25 * 60 * MIN }] },
+=======
+  { id: 1, expertId: 1, unread: 1, msgs: [{ me: false, t: 'Hi! Looking forward to our call today. Anything you want me to review first?', ts: n0 - 12 * MIN }] },
+  { id: 2, expertId: 2, unread: 0, msgs: [{ me: true, t: 'Thanks for the seed round notes.', ts: n0 - 26 * 60 * MIN }, { me: false, t: 'Glad they helped. Send the updated deck when it is ready.', ts: n0 - 25 * 60 * MIN }] },
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
 ]
 
 export const REPLIES = ['Sounds good. Could you share a bit more context?', 'Great, I will take a look and come prepared.', 'Thanks for the update! Anything specific you want to focus on?', 'Noted. Let us cover that in our session.', 'Happy to help. Feel free to send over any documents.']

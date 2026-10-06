@@ -376,9 +376,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   .ex,.ses,.row-item{content-visibility:auto;contain-intrinsic-size:auto 150px}
 }
 @media (max-width:360px){.bub{max-width:88%}.b-link{font-size:10px}}
+<<<<<<< HEAD
 
 .problem-box { margin-bottom: 24px; padding: 24px; border: 1px solid var(--line, #e7e7e7); border-radius: 18px; background: var(--card, #fff); }
 .problem-box h1 { margin: 8px 0 4px; }
 .problem-box textarea { width: 100%; resize: vertical; margin: 16px 0 12px; padding: 14px; border: 1px solid var(--line, #ddd); border-radius: 12px; font: inherit; box-sizing: border-box; }
 .match-note { margin-top: 12px; font-size: 13px; }
 .loading-screen { min-height: 100vh; display: grid; place-items: center; font-weight: 700; }
+=======
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e

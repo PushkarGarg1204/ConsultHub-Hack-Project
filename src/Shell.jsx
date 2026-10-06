@@ -9,17 +9,26 @@ import Logo from './components/Logo.jsx'
 import UserAvatar from './components/UserAvatar.jsx'
 import Profile from './pages/Profile.jsx'
 import NotifSheet from './components/NotifSheet.jsx'
+<<<<<<< HEAD
 import { THREADS, EXPERTS, REPLIES, MIN, fmtWhen, fmtLeft, slotToTs } from './data.js'
 import { api, bookingToSession, mentorToCard } from './api.js'
+=======
+import { SESSIONS, THREADS, EXPERTS, REPLIES, MIN, fmtWhen, fmtLeft, slotToTs } from './data.js'
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
 
 const NAV = [['home', 'Home', 'home'], ['sessions', 'Sessions', 'calendar'], ['messages', 'Messages', 'chat'], ['saved', 'Saved', 'bookmark'], ['profile', 'Profile', 'user']]
 
 export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
   const [tab, setTab] = useState('home')
+<<<<<<< HEAD
   const [savedMentors, setSavedMentors] = useState([])
   const saved = savedMentors.map((m) => m.id)
   const [sessions, setSessions] = useState([])
   const [bookingBusy, setBookingBusy] = useState(false)
+=======
+  const [saved, setSaved] = useState([1])
+  const [sessions, setSessions] = useState(SESSIONS)
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
   const [threads, setThreads] = useState(THREADS)
   const [openId, setOpenId] = useState(null)
   const [typing, setTyping] = useState({})
@@ -32,7 +41,10 @@ export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
   const live = useRef({}); live.current = { tab, openId, prefs, saved, threads }
   const fired = useRef(new Set())
   useEffect(() => { window.scrollTo(0, 0) }, [tab])
+<<<<<<< HEAD
   useEffect(() => { Promise.all([api.saved(), api.bookings()]).then(([savedList, bookingList]) => { setSavedMentors(savedList.map(mentorToCard)); setSessions(bookingList.map(bookingToSession)) }).catch(() => {}) }, [])
+=======
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
   useEffect(() => { const i = setInterval(() => setNow(Date.now()), 15000); return () => clearInterval(i) }, [])
 
   // Push a notification: in-app list + toast, and a system notification when the app is in the background
@@ -82,7 +94,11 @@ export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
   // Meeting reminders: 15 / 5 / 1 min before, and when it starts
   useEffect(() => {
     sessions.filter((s) => s.status === 'upcoming').forEach((s) => {
+<<<<<<< HEAD
       const left = s.at - now, name = s.expert?.name || EXPERTS.find((e) => e.id === s.expertId)?.name || 'your mentor', f = (k) => fired.current.has(`${s.id}:${s.at}:${k}`), mark = (k) => fired.current.add(`${s.id}:${s.at}:${k}`)
+=======
+      const left = s.at - now, name = EXPERTS.find((e) => e.id === s.expertId).name, f = (k) => fired.current.has(`${s.id}:${s.at}:${k}`), mark = (k) => fired.current.add(`${s.id}:${s.at}:${k}`)
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
       if (left <= 0 && left > -s.mins * MIN) { if (!f('go')) { [15, 5, 1].forEach(mark); mark('go'); push({ kind: 'meeting', title: 'Your session has started', body: `${s.title} with ${name}. Tap to join.`, tag: 's' + s.id, target: { tab: 'sessions' } }) }; return }
       for (const th of [1, 5, 15]) if (left > 0 && left <= th * MIN) {
         if (!f(th)) push({ kind: 'meeting', title: `Session in ${fmtLeft(left)}`, body: `${s.title} with ${name}`, tag: 's' + s.id, target: { tab: 'sessions' } })
@@ -91,6 +107,7 @@ export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
     })
   }, [now, sessions, push])
 
+<<<<<<< HEAD
   const onSave = async (id) => { try { await api.toggleSaved(id); setSavedMentors((await api.saved()).map(mentorToCard)) } catch (e) { notify(e.message) } }
   const confirm = async (e, v) => {
     if (bookingBusy) return
@@ -104,6 +121,15 @@ export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
       setBooking(null); setTab('sessions'); notify('Booked with ' + e.name)
     } catch (err) { notify(err.message) }
     finally { setBookingBusy(false) }
+=======
+  const onSave = (id) => setSaved((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]))
+  const confirm = (e, v) => {
+    if (credits < e.rate) { notify('Not enough credits. Top up in Profile'); return }
+    const at = slotToTs(v.day, v.time)
+    setCredits((c) => c - e.rate)
+    setSessions((a) => [{ id: Date.now(), title: `Session with ${e.name}`, expertId: e.id, at, when: fmtWhen(at), mins: 60, status: 'upcoming' }, ...a])
+    setBooking(null); setTab('sessions'); notify('Booked with ' + e.name)
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
   }
   const reschedule = (id, v) => { const at = slotToTs(v.day, v.time); setSessions((a) => a.map((s) => (s.id === id ? { ...s, at, when: fmtWhen(at) } : s))) }
   const topUp = (a, label, txn) => { setCredits((c) => c + a); push({ kind: 'pay', title: 'Payment received', body: `₹${a.toLocaleString('en-IN')} added via ${label} · ${txn}`, target: { tab: 'profile' } }) }
@@ -157,14 +183,22 @@ export default function Shell({ user, theme, notify, onLogout, onUpdate }) {
           {tab === 'home' && <Home saved={saved} onSave={onSave} onBook={setBooking} />}
           {tab === 'sessions' && <Sessions sessions={liveSessions} setSessions={setSessions} onResched={reschedule} notify={notify} />}
           {tab === 'messages' && <Messages threads={threads} openId={openId} setOpenId={setOpenId} onOpen={openThread} onSend={send} typing={typing} />}
+<<<<<<< HEAD
           {tab === 'saved' && <Saved savedMentors={savedMentors} onSave={onSave} onBook={setBooking} goHome={() => setTab('home')} />}
+=======
+          {tab === 'saved' && <Saved saved={saved} onSave={onSave} onBook={setBooking} goHome={() => setTab('home')} />}
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
           {tab === 'profile' && <Profile user={user} stats={stats} credits={credits} theme={theme} prefs={prefs} setPrefs={setPrefs} onUpdate={onUpdate} onTopUp={topUp} onLogout={onLogout} notify={notify} />}
         </main>
       </div>
 
       <nav className={'bottom' + (tab === 'messages' && openId ? ' hide' : '')} aria-label="Main">{nav('b-link')}</nav>
       {panel && <NotifSheet items={notifs} onOpen={openNotif} onReadAll={() => setNotifs((a) => a.map((n) => ({ ...n, read: true })))} onClose={() => setPanel(false)} />}
+<<<<<<< HEAD
       {booking && <BookSheet expert={booking} onConfirm={confirm} busy={bookingBusy} onClose={() => setBooking(null)} />}
+=======
+      {booking && <BookSheet expert={booking} onConfirm={confirm} onClose={() => setBooking(null)} />}
+>>>>>>> c527d2984538c1c3cb131e57d41ce3b46214962e
     </div>
   )
 }
